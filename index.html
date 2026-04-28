@@ -1,0 +1,647 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Atendimento psicológico acolhedor, ético e personalizado. Saiba como funciona o agendamento, a primeira consulta e o processo terapêutico." />
+  <link rel="icon" type="image/png" href="images/favicon.ico">
+  <title>Psicóloga | Jaqueline Jerke</title>
+
+  <style>
+    :root {
+      --olive: #5F965D;
+      --dust-grey: #E8E4DD;
+      --sand: #D9CBB8;
+      --charcoal: #2E302B;
+      --white: #FFFFFF;
+      --black: #111111;
+      --off-white: #FBFAF6;
+      --soft-sand: #F1E9DC;
+      --text: #2B2D28;
+      --muted: #6E7068;
+      --radius: 24px;
+      --shadow: 0 18px 45px rgba(46, 48, 43, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--off-white);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(250, 250, 247, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(46, 48, 43, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+      font-weight: 700;
+      color: var(--charcoal);
+    }
+
+    .brand span {
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 0.94rem;
+      color: var(--charcoal);
+    }
+
+    .nav-links a:hover {
+      color: var(--olive);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .button-primary {
+      background: var(--olive);
+      color: var(--white);
+    }
+
+    .button-secondary {
+      background: var(--white);
+      color: var(--charcoal);
+      border-color: rgba(95, 150, 93, 0.32);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 92px 0 72px;
+      background:
+        radial-gradient(circle at top right, rgba(217, 203, 184, 0.50), transparent 36%),
+        linear-gradient(135deg, var(--off-white), var(--dust-grey));
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(95, 150, 93, 0.13);
+      color: var(--olive);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      line-height: 1.12;
+      color: var(--charcoal);
+    }
+
+    h1 {
+      max-width: 760px;
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      letter-spacing: -0.06em;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      letter-spacing: -0.04em;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+    }
+
+    .lead {
+      max-width: 640px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: clamp(1.02rem, 2vw, 1.22rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .hero-card {
+      position: relative;
+      min-height: 480px;
+      border-radius: 36px;
+      background:
+        linear-gradient(160deg, rgba(95, 150, 93, 0.94), rgba(63, 67, 56, 0.96)),
+        var(--charcoal);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      color: var(--white);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 28px;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      top: -70px;
+      right: -90px;
+      border-radius: 999px;
+      background: rgba(217, 203, 184, 0.32);
+    }
+
+    .hero-card-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card p {
+      margin: 14px 0 0;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .section {
+      padding: 88px 0;
+    }
+
+    .section-header {
+      max-width: 720px;
+      margin-bottom: 36px;
+    }
+
+    .section-header p {
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      padding: 28px;
+      border-radius: var(--radius);
+      background: var(--white);
+      border: 1px solid rgba(46, 48, 43, 0.08);
+      box-shadow: 0 10px 28px rgba(46, 48, 43, 0.06);
+    }
+
+    .card-number {
+      width: 42px;
+      height: 42px;
+      margin-bottom: 22px;
+      border-radius: 50%;
+      background: var(--soft-sand);
+      color: var(--charcoal);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+    }
+
+    .card p {
+      margin: 12px 0 0;
+      color: var(--muted);
+    }
+
+    .about {
+      background: var(--charcoal);
+      color: var(--white);
+    }
+
+    .about h2,
+    .about h3 {
+      color: var(--white);
+    }
+
+    .about p {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 38px;
+      align-items: center;
+    }
+
+    .photo-slider {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      border-radius: 34px;
+      overflow: hidden;
+      background:
+        linear-gradient(145deg, rgba(217, 203, 184, 0.94), rgba(232, 228, 221, 0.72)),
+        var(--sand);
+      box-shadow: var(--shadow);
+    }
+
+    .photo-slider img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .photo-slider img.active {
+      opacity: 1;
+    }
+
+    .photo-slider-fallback {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 30px;
+      color: rgba(46, 48, 43, 0.70);
+      text-align: center;
+      font-weight: 700;
+      z-index: 0;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .pill {
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.09);
+      color: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.92rem;
+    }
+
+    .cta {
+      padding: 72px 0;
+      background: linear-gradient(135deg, #D9CBB8, #F1E9DC);
+    }
+
+    .cta-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      padding: 40px;
+      border-radius: 34px;
+      background: rgba(255, 255, 255, 0.68);
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      box-shadow: var(--shadow);
+    }
+
+    .cta-box p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      max-width: 650px;
+    }
+
+    .faq {
+      display: grid;
+      gap: 14px;
+    }
+
+    details {
+      border-radius: 18px;
+      background: var(--white);
+      border: 1px solid rgba(46, 48, 43, 0.08);
+      padding: 20px 22px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 800;
+      color: var(--charcoal);
+    }
+
+    details p {
+      margin: 12px 0 0;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 34px 0;
+      background: var(--charcoal);
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.92rem;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 860px) {
+      .nav {
+        min-height: 64px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 64px 0 52px;
+      }
+
+      .hero-grid,
+      .about-grid,
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        min-height: 340px;
+      }
+
+      .section {
+        padding: 64px 0;
+      }
+
+      .cta-box {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 28px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .container {
+        width: min(100% - 24px, 1120px);
+      }
+
+      .hero-actions,
+      .button {
+        width: 100%;
+      }
+
+      .card,
+      details {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="Início">
+        Jaqueline Jerke
+        <span>Psicóloga Clínica · CRP 12/27185 · TCC</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#terapia">Terapia</a>
+        <a href="#duvidas">Dúvidas</a>
+        <a class="button button-primary" href="https://www.instagram.com/jaquejerke.psico/">Instagram</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Atendimento psicológico acolhedor</span>
+          <h1>Um espaço seguro para falar, entender e recomeçar.</h1>
+          <p class="lead">
+            Atendimento psicológico para adolescentes e jovens. Aqui você encontra informações simples sobre agendamento, primeira consulta e continuidade do processo terapêutico.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#contato">Entrar em contato</a>
+            <a class="button button-secondary" href="#como-funciona">Entender o processo</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Mensagem de acolhimento">
+          <div class="hero-card-content">
+            <h2>Cuidado no seu tempo.</h2>
+            <p>
+              A terapia é um encontro consigo: um caminho possível para organizar pensamentos, reconhecer emoções e construir novas formas de lidar com a vida.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="como-funciona">
+      <div class="container">
+        <div class="section-header">
+          <h2>Como funciona o agendamento</h2>
+          <p>O primeiro contato é simples, informal e sem compromisso.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-number">1</div>
+            <h3>Envie uma mensagem</h3>
+            <p>Entre em contato pelo Instagram informando seu interesse em iniciar a terapia e sua disponibilidade de horários.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-number">2</div>
+            <h3>Combine dia e horário</h3>
+            <p>Após o retorno, alinhamos o melhor horário e orientações iniciais.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-number">3</div>
+            <h3>Confirme a consulta</h3>
+            <p>Com o horário definido, você recebe as informações necessárias para o primeiro encontro.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="terapia">
+      <div class="container about-grid">
+        <div class="photo-slider" aria-label="Fotos da psicóloga">
+          <div class="photo-slider-fallback"></div>
+          <img src="images/foto1.jpg" alt="Foto profissional da psicóloga Jaqueline Jerke" class="active">
+          <img src="images/foto2.jpg" alt="Foto profissional da psicóloga Jaqueline Jerke">
+          <img src="images/foto3.jpg" alt="Foto profissional da psicóloga Jaqueline Jerke">
+          <img src="images/foto4.jpg" alt="Foto profissional da psicóloga Jaqueline Jerke">
+        </div>
+
+        <div>
+          <span class="eyebrow">Primeira consulta e terapia</span>
+          <h2>O processo começa com uma conversa inicial.</h2>
+          <p>
+            Na primeira consulta, o objetivo é compreender o que trouxe você até a terapia, conhecer um pouco da sua história e explicar como os atendimentos funcionam. Não é preciso saber exatamente por onde começar: esse espaço é construído junto, com respeito ao seu ritmo.
+          </p>
+          <p>
+            Ao longo do processo terapêutico, os encontros ajudam a elaborar questões emocionais, fortalecer recursos internos e ampliar a percepção sobre escolhas, relações e formas de cuidado.
+          </p>
+
+          <div class="pill-list" aria-label="Características do atendimento">
+            <span class="pill">Escuta sigilosa</span>
+            <span class="pill">Atendimento ético</span>
+            <span class="pill">Processo personalizado</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="duvidas">
+      <div class="container">
+        <div class="section-header">
+          <h2>Dúvidas frequentes</h2>
+          <p>Algumas respostas rápidas para quem está pensando em iniciar a terapia.</p>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>O que é Terapia Cognitivo-Comportamental (TCC)?</summary>
+            <p>A Terapia Cognitivo-Comportamental (TCC) parte da ideia de que a forma como pensamos influencia diretamente o que sentimos e como agimos. Muitas vezes, sem perceber, criamos padrões de pensamento que aumentam o sofrimento e dificultam lidar com situações do dia a dia.</p>
+            <p>Na terapia, esse processo é construído com calma e respeito ao seu tempo. Aos poucos, vamos identificando esses padrões e desenvolvendo maneiras mais leves, realistas e saudáveis de se relacionar com seus pensamentos, emoções e escolhas.</p>
+            <p>O objetivo não é mudar quem você é, mas te ajudar a se compreender melhor e encontrar formas mais equilibradas de lidar com a vida.</p>
+          </details>
+        
+        
+          <details>
+            <summary>Preciso me preparar para a primeira consulta?</summary>
+            <p>Não. Basta comparecer no horário combinado. A conversa inicial serve justamente para entender sua demanda e orientar os próximos passos.</p>
+          </details>
+
+          <details>
+            <summary>Quanto tempo dura cada sessão?</summary>
+            <p>Geralmente, as sessões têm duração aproximada de 50 minutos. O tempo e a frequência podem ser explicados no primeiro contato.</p>
+          </details>
+
+          <details>
+            <summary>A terapia é somente para momentos de crise?</summary>
+            <p>Não. A terapia também pode ser um espaço de autoconhecimento, prevenção, fortalecimento emocional e cuidado contínuo.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <div class="cta-box" id="contato">
+          <div>
+            <h2>Quer iniciar esse cuidado?</h2>
+            <p>Envie uma mensagem pelo canal que preferir para tirar suas dúvidas.</p>
+          </div>
+          <a class="button button-primary" href="https://www.instagram.com/jaquejerke.psico/" target="_blank" rel="noopener">Instagram</a>
+          <a class="button button-primary" href="https://www.linkedin.com/in/jaqueline-bresch-69632097/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="button button-primary" href="mailto:jaquelinebresch.jb@gmail.com" target="_blank" rel="noopener">Email</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <span>© 2026 Jaqueline Jerke · CRP 12/27185</span>
+      <span>Atendimento psicológico com ética e sigilo profissional.</span>
+    </div>
+  </footer>
+
+  <script>
+    const professionalPhotos = document.querySelectorAll(".photo-slider img");
+    let activePhotoIndex = 0;
+
+    professionalPhotos.forEach((photo) => {
+      photo.addEventListener("error", () => {
+        photo.remove();
+      });
+    });
+
+    setInterval(() => {
+      const photos = document.querySelectorAll(".photo-slider img");
+
+      if (photos.length <= 1) return;
+
+      photos[activePhotoIndex].classList.remove("active");
+      activePhotoIndex = (activePhotoIndex + 1) % photos.length;
+      photos[activePhotoIndex].classList.add("active");
+    }, 5000);
+  </script>
+</body>
+</html>
