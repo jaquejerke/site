@@ -190,51 +190,6 @@
       margin-top: 32px;
     }
 
-    .hero-card {
-      position: relative;
-      min-height: 480px;
-      border-radius: 36px;
-      background:
-        linear-gradient(160deg, rgba(95, 150, 93, 0.94), rgba(63, 67, 56, 0.96)),
-        var(--charcoal);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      color: var(--white);
-      padding: 32px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: 28px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      border-radius: 28px;
-    }
-
-    .hero-card::after {
-      content: "";
-      position: absolute;
-      width: 280px;
-      height: 280px;
-      top: -70px;
-      right: -90px;
-      border-radius: 999px;
-      background: rgba(217, 203, 184, 0.32);
-    }
-
-    .hero-card-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-card p {
-      margin: 14px 0 0;
-      color: rgba(255, 255, 255, 0.78);
-    }
-
     .section {
       padding: 88px 0;
     }
@@ -434,10 +389,6 @@
         grid-template-columns: 1fr;
       }
 
-      .hero-card {
-        min-height: 340px;
-      }
-
       .section {
         padding: 64px 0;
       }
@@ -497,15 +448,6 @@
             <a class="button button-secondary" href="#como-funciona">Entender o processo</a>
           </div>
         </div>
-
-        <aside class="hero-card" aria-label="Mensagem de acolhimento">
-          <div class="hero-card-content">
-            <h2>Cuidado no seu tempo.</h2>
-            <p>
-              A terapia é um encontro consigo: um caminho possível para organizar pensamentos, reconhecer emoções e construir novas formas de lidar com a vida.
-            </p>
-          </div>
-        </aside>
       </div>
     </section>
 
